@@ -64,3 +64,7 @@ jobs:
             # --artifact-path "my-image-name:${{ env.tag-version }}" 
             # OR the path to the root folder of your project. I.e my-repo/my-app 
             # --artifact-path "${{env.MY_APP_ROOT}}"
+      - name: Run the Aqua scanner
+        run: |
+          docker run —d e SCALOCK_LOG_LEVEL=DEBUG -e BUILD_JOB_NAME=SPOOKY-IH -e BUILD_NUMBER=${{ github.run_id }} -v /var/run/docker.sock:/var/run/docker.sock registry.aquasec.com/scanner-cli:2209.4.4 daemon --token adb26d320bae173803dab934449381684741ca12 --host https://225fccbcb7-gw.cloud.aquasec.com --local spooky-ih:1.1 --checkonly --no-verify --html 
+
