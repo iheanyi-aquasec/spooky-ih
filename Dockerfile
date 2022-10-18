@@ -1,5 +1,6 @@
 #multi-stage built container
 FROM python:3.7-slim as TheSneaky
+LABEL owner=aquasa
 
 WORKDIR /app
 
