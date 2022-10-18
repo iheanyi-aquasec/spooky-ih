@@ -41,5 +41,5 @@ jobs:
 
       - name: Run the Aqua scanner
         run: |
-          docker run -d -e SCALOCK_LOG_LEVEL=DEBUG  registry.aquasec.com/scanner-cli:2209.4.4 daemon --token adb26d320bae173803dab934449381684741ca12 --host https://225fccbcb7-gw.cloud.aquasec.com
+          docker run -d -e SCALOCK_LOG_LEVEL=DEBUG  registry.aquasec.com/scanner:2209.4.4 daemon --token adb26d320bae173803dab934449381684741ca12 --host https://225fccbcb7-gw.cloud.aquasec.com
 
