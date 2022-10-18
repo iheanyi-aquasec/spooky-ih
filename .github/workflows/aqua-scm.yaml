@@ -30,6 +30,14 @@ jobs:
       - name: Build an image from Dockerfile
         run: |
           docker build -t docker.io/my-organization/spooky:${{ github.sha }} .
+      
+      # Aqua Registry login
+      - name: Login to Aqua Registry
+        uses: docker/login-action@v1
+        with:
+          registry: registry.aquasec.com
+          username: ${{ secrets.AQUADEV_USERNAME }}
+          password: ${{ secrets.AQUADEV_PASS }}
 
       - name: Run the Aqua scanner
         run: |
